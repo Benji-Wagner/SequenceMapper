@@ -23,7 +23,8 @@ The `SequenceMapper` package comes loaded with randomly generated
 and [FASTA](https://zhanglab.ccmb.med.umich.edu/FASTA/) files. 
 
 These files can be loaded like so:
-```r
+```{r}
+library(SequenceMapper}
 reads_table <- get_reads_table()
 barcodes_table <- get_barcodes_table()
 ```
@@ -36,7 +37,7 @@ Phred Score. Finally, we take the first barcode with the greatest joint probabil
 corresponding read in the `reads_table`.
 
 This process has been largely automated, and can be completed like so:
-```r
+```{r}
 library(dplyr)
 # if you don't have this package, run install.packages("dplyr")
 
