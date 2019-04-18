@@ -2,26 +2,26 @@
 % Please edit documentation in R/get_index_of_optimal_mapping.R
 \name{get_index_of_optimal_mapping}
 \alias{get_index_of_optimal_mapping}
-\title{Calculate Joint Probability of Map}
+\title{Get Optimal Mapping Indices}
 \usage{
 get_index_of_optimal_mapping(barcodes, read, read_phred, filtered_barcodes)
 }
 \arguments{
+\item{barcodes}{A vector of reference barcodes. Each barcode should be of equal length to \code{read}.}
+
 \item{read}{The read sequence which maps to \code{barcode}. Should be the same length as \code{barcode}.}
 
-\item{reference}{The barcode sequence to which \code{read} maps to. Should be the same length as \code{read}.}
+\item{read_phred}{The phred score for \code{read}. Should be the same length as \code{read}.}
+
+\item{filtered_barcodes}{A non-empty vector of integers containing the indices for the barcodes within
+a certain distance from the read.}
 }
 \value{
-Returns a scalar joint probability
+Returns a numeric vector of probabilities
 }
 \description{
-\code{calculate_probability} takes a read and reference of equal length \code{n}, finds the positions of mismatch,
-then calculates the joint probability of the read mapping to the reference based on the given phred score.
-For a given position in a mapping and \code{P} being the probability of error at that position, the probability
-of mapping is \eqn{1 - P} if the calls are the same, and \eqn{P/3} if the calls are different.
-If there are no mismatches, the joint probability is \eqn{(1 - P)^n}.
-}
-\examples{
-phred_to_prob('BEEEEFEFEEEFBEEDEE')
-phred_to_prob('989BBAB7A3E667BAA?')
+\code{get_index_of_optimal_mapping} takes a table of barcodes, a single read, the read's phred score, and
+the indices of the barcodes that are within a certain Hamming Distance of the read. This function iterates
+through the indices of the barcodes, calculates the joint probability of the read mapping to the barcode,
+and then concatenates this value to a vector. Eventually returns a vector of joint probabilities.
 }
