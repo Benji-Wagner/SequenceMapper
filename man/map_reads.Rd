@@ -4,7 +4,7 @@
 \alias{map_reads}
 \title{Map Reads to Reference Barcodes}
 \usage{
-map_reads(barcodes_table, reads_table)
+map_reads(barcodes_table, reads_table, distance_threshold = 2)
 }
 \arguments{
 \item{barcodes_table}{The full table of reference barcodes, which contains a column titled \code{Labels},
@@ -12,6 +12,8 @@ which contains the sequence ID, and another called \code{Code}, which contains t
 
 \item{reads_table}{The full table of reads, which contains a column titled \code{Read_ID}, another called
 \code{Called_Read}, and a third column titled \code{Phred_Score}.}
+
+\item{distance_threshold}{Integer specifying the Hamming distance threshold for which we want to filter barcodes}
 }
 \value{
 Returns the original reads table along with the barcode that was mapped and the probability of

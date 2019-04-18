@@ -14,6 +14,7 @@
 #'      which contains the sequence ID, and another called \code{Code}, which contains the barcode sequence.
 #' @param reads_table The full table of reads, which contains a column titled \code{Read_ID}, another called
 #'      \code{Called_Read}, and a third column titled \code{Phred_Score}.
+#' @param distance_threshold Integer specifying the Hamming distance threshold for which we want to filter barcodes
 #' @export
 #' @return Returns the original reads table along with the barcode that was mapped and the probability of
 #' the map.
@@ -22,14 +23,16 @@
 #' mapped_reads %>% group_by(mapped_barcodes) %>%
 #'      summarize(Number_Mapped = n(), Proportion_Mapped = n()/nrow(mapped_reads))
 
-map_reads <- function(barcodes_table, reads_table){
+map_reads <- function(barcodes_table, reads_table, distance_threshold = 2){
 
   mapped_barcodes <- c()
   mapped_probabilities <- c()
 
   for(i in 1:nrow(reads_table)){
 
-    filtered_barcodes <- get_mapped_barcode_indices(barcodes = barcodes_table$Code, read = reads_table$Called_Read[i])
+    filtered_barcodes <- get_mapped_barcode_indices(barcodes = barcodes_table$Code, 
+                                                    read = reads_table$Called_Read[i], 
+                                                    distance_threshold = distance_threshold)
 
     if(is_empty(filtered_barcodes)){
       mapped_probabilities <- c(mapped_probabilities, NA)

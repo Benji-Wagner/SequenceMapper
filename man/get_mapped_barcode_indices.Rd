@@ -10,6 +10,8 @@ get_mapped_barcode_indices(barcodes, read, distance_threshold = 2)
 \item{barcodes}{Character vector of reference sequences}
 
 \item{read}{Character string with the same length as each barcode in \code{barcodes}}
+
+\item{distance_threshold}{Integer specifying the Hamming distance threshold for which we want to filter barcodes}
 }
 \value{
 Returns a vector of integers which are the indices of barcodes within 2 Hamming distance of the read
