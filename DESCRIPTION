@@ -1,5 +1,5 @@
 Package: SequenceMapper
-Title: What the Package Does (One Line, Title Case)
+Title: Map Reads to Reference Barcodes
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Benji",
@@ -16,3 +16,5 @@ LinkingTo:
     Rcpp
 Imports: 
     Rcpp
+Suggests: knitr, rmarkdown, readr, dplyr, magrittr
+VignetteBuilder: knitr
