@@ -9,6 +9,10 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
+```{r, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
 This package aims to educate users on how sample DNA reads from high-throughput sequencing processes can be mapped
 to reference barcodes. This package comes with some sample data that can be loaded and ran with the included functions.
 The reads dataset comes with the read identifier, the called read, and the read's [Phred Score](https://en.wikipedia.org/wiki/Phred_quality_score). 
@@ -20,7 +24,7 @@ a probabilistic error model.
 
 # Installation
 
-```{r}
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
 library(devtools)
 # if you don't have the package, run install.packages("devtools")
 install_github("Benji-Wagner/SequenceMapper")
@@ -47,17 +51,20 @@ Phred Score. Finally, we take the first barcode with the greatest joint probabil
 corresponding read in the `reads_table`.
 
 This process has been largely automated, and can be completed like so:
-```{r}
+```{r, message = FALSE, warning = FALSE}
 library(dplyr)
 # if you don't have this package, run install.packages("dplyr")
 
 mapped_reads <- map_reads(reads_table = reads_table, 
   barcodes_table = barcodes_table, distance_threshold = 2)
+```
 
-# See the number of reads that mapped to a particular barcode and the 
-# proportion of mapped reads that mapped to it
+Now let's see the number of reads that mapped to a particular barcode 
+and the proportion of mapped reads that mapped to it:
+```{r}
 mapped_reads %>% group_by(mapped_barcodes) %>%
   summarize(Number_Mapped = n(), Proportion_Mapped = n()/nrow(.))
 ```
+
 
 
