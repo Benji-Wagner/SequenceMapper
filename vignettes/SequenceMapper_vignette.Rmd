@@ -9,7 +9,6 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-# SequenceMapper
 This package aims to educate users on how sample DNA reads from high-throughput sequencing processes can be mapped
 to reference barcodes. This package comes with some sample data that can be loaded and ran with the included functions.
 The reads dataset comes with the read identifier, the called read, and the read's [Phred Score](https://en.wikipedia.org/wiki/Phred_quality_score). 
@@ -21,7 +20,7 @@ a probabilistic error model.
 
 # Installation
 
-```r
+```{r}
 library(devtools)
 # if you don't have the package, run install.packages("devtools")
 install_github("Benji-Wagner/SequenceMapper")
@@ -34,9 +33,10 @@ The `SequenceMapper` package comes loaded with randomly generated
 and [FASTA](https://zhanglab.ccmb.med.umich.edu/FASTA/) files. 
 
 These files can be loaded like so:
-```r
+```{r}
+library(SequenceMapper)
 reads_table <- get_reads_table()
-barcodes_table <- get_barcodes_table()
+barcodes_table <- get_barcode_table()
 ```
 
 By calling the `map_reads` function, we can map all the reads in `reads_table` to a barcode in `barcodes_table`. 
@@ -47,7 +47,7 @@ Phred Score. Finally, we take the first barcode with the greatest joint probabil
 corresponding read in the `reads_table`.
 
 This process has been largely automated, and can be completed like so:
-```r
+```{r}
 library(dplyr)
 # if you don't have this package, run install.packages("dplyr")
 
