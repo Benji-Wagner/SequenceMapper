@@ -24,7 +24,7 @@
 #'      summarize(Number_Mapped = n(), Proportion_Mapped = n()/nrow(mapped_reads))
 
 map_reads <- function(barcodes_table, reads_table, distance_threshold = 2){
-
+  print("Mapping reads to references... This may take some time. Go grab a coffee or something.")
   mapped_barcodes <- c()
   mapped_probabilities <- c()
 
