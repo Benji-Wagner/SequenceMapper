@@ -37,9 +37,10 @@ corresponding read in the `reads_table`.
 
 This process has been largely automated, and can be completed like so:
 ```r
-mapped_reads <- map_reads(reads_table = reads_table, barcodes_table = barcodes_table)
+mapped_reads <- map_reads(reads_table = reads_table, barcodes_table = barcodes_table, distance_threshold = 2)
 
-# See the number of reads that mapped to a particular barcode and the proportion of mapped reads that mapped to it
+# See the number of reads that mapped to a particular barcode and the 
+# proportion of mapped reads that mapped to it
 mapped_reads %>% group_by(mapped_barcodes) %>%
   summarize(Number_Mapped = n(), Proportion_Mapped = n()/nrow(.))
 ```
