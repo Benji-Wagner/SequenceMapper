@@ -68,7 +68,7 @@ mapped_reads %>%
 ```
 
 Here's a quick look at the distribution of reads mapped to a barcode:
-```{r}
+```{r, out.height=6}
 library(ggplot2)
 # if you don't have this package, run install.packages("ggplot2")
 
