@@ -65,3 +65,10 @@ mapped_reads %>%
   ylab("Count") +
   ggtitle("Distribution of Reads Mapped Per Barcode")
 ```
+
+# References
+
+H. Li, J. Ruan, and R. Durbin.
+Mapping short DNA sequencing reads and calling variants using mapping quality
+scores.
+*Genome Res., 18:1851, 2008.*
