@@ -13,7 +13,8 @@ a probabilistic error model.
 ```r
 library(devtools)
 # if you don't have the package, run install.packages("devtools")
-install_github("Benji-Wagner/SequenceMapper")
+devtools::install_github("Benji-Wagner/SequenceMapper", build_opts = c("--no-resave-data", "--no-manual"))
+# You must specify the build_opts if you want to load the vignette
 ```
 
 # Use Cases
@@ -49,3 +50,22 @@ mapped_reads <- map_reads(reads_table = reads_table,
 mapped_reads %>% group_by(mapped_barcodes) %>%
   summarize(Number_Mapped = n(), Proportion_Mapped = n()/nrow(.))
 ```
+
+Here's a quick look at the distribution of reads mapped to a barcode:
+```r
+library(ggplot2)
+# if you don't have this package, run install.packages("ggplot2")
+
+mapped_reads %>% 
+  group_by(mapped_barcodes) %>%
+  summarize(Number_Mapped = n(), Proportion_Mapped = n()/nrow(.)) %>% 
+  ggplot(mapping = aes(x = Number_Mapped)) + 
+  geom_histogram(bins = 40) +
+  xlab("Number of Reads Mapped to a Barcode") +
+  ylab("Count") +
+  ggtitle("Distribution of Reads Mapped Per Barcode")
+```
+
+From this plot we can see that a particular barcode has been mapped to over 200 times!
+
+
