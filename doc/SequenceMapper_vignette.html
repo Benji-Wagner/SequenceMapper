@@ -329,7 +329,8 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <h1>Installation</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(devtools)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># if you don't have the package, run install.packages(&quot;devtools&quot;)</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install_github</span>(<span class="st">&quot;Benji-Wagner/SequenceMapper&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb1-3" data-line-number="3">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;Benji-Wagner/SequenceMapper&quot;</span>, <span class="dt">build_opts =</span> <span class="kw">c</span>(<span class="st">&quot;--no-resave-data&quot;</span>, <span class="st">&quot;--no-manual&quot;</span>))</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># must specify the build_opts to load the vignette</span></a></code></pre></div>
 </div>
 <div id="use-cases" class="section level1">
 <h1>Use Cases</h1>
