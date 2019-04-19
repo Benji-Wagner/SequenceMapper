@@ -4,7 +4,7 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ## ---- message = FALSE, warning = FALSE, eval = FALSE---------------------
 #  library(devtools)
 #  # if you don't have the package, run install.packages("devtools")
-#  devtools::install_github("Benji-Wagner/SequenceMapper", build_opts = c("--no-resave-data", "--no-manual"))
+#  install_github("Benji-Wagner/SequenceMapper")
 
 ## ------------------------------------------------------------------------
 library(SequenceMapper)
