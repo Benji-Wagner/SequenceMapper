@@ -44,6 +44,8 @@ $$
     \end{cases}
 $$
 
+This model is adapted from Heng *et al* [1].
+
 # Installation
 
 ```{r, message = FALSE, warning = FALSE, eval = FALSE}
@@ -105,3 +107,11 @@ mapped_reads %>%
 ```
 
 From this plot we can see that a particular barcode has been mapped to over 200 times!
+
+# References
+
+H. Li, J. Ruan, and R. Durbin.
+Mapping short DNA sequencing reads and calling variants using mapping quality
+scores.
+
+*Genome Res., 18:1851, 2008.*
