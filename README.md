@@ -13,8 +13,7 @@ a probabilistic error model.
 ```r
 library(devtools)
 # if you don't have the package, run install.packages("devtools")
-devtools::install_github("Benji-Wagner/SequenceMapper", build_opts = c("--no-resave-data", "--no-manual"))
-# You must specify the build_opts if you want to load the vignette
+install_github("Benji-Wagner/SequenceMapper")
 ```
 
 # Use Cases
