@@ -20,7 +20,3 @@ which are ASCII characters used to encode the probabilities of a sequencing erro
 in a sequence, to a vector of probability values.
 \code{phred_to_prob} is called by \code{\link{calculate_probability}}.
 }
-\examples{
-phred_to_prob('BEEEEFEFEEEFBEEDEE')
-phred_to_prob('989BBAB7A3E667BAA?')
-}

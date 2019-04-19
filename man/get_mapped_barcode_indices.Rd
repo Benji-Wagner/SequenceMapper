@@ -21,6 +21,3 @@ Returns a vector of integers which are the indices of barcodes within 2 Hamming 
 returns the indices of the barcodes that were within two hamming distance units
 from the read.
 }
-\examples{
-get_mapped_barcode_indices(barcodes = c('ACTG', 'AATG', 'GTCA'), read = 'ACTG')
-}

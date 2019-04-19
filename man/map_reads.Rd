@@ -26,6 +26,9 @@ the read mapping to each barcode that is within 2 Hamming distances. Then, out o
 of probabilities, it selects the first barcode with the greatest probability of being a match.
 }
 \examples{
+library(dplyr)
+library(SequenceMapper)
+
 mapped_reads <- map_reads(reads_table = reads_table, barcodes_table = barcodes_table)
 mapped_reads \%>\% group_by(mapped_barcodes) \%>\%
      summarize(Number_Mapped = n(), Proportion_Mapped = n()/nrow(mapped_reads))

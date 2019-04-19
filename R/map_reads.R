@@ -19,6 +19,9 @@
 #' @return Returns the original reads table along with the barcode that was mapped and the probability of
 #' the map.
 #' @examples
+#' library(dplyr)
+#' library(SequenceMapper)
+#' 
 #' mapped_reads <- map_reads(reads_table = reads_table, barcodes_table = barcodes_table)
 #' mapped_reads %>% group_by(mapped_barcodes) %>%
 #'      summarize(Number_Mapped = n(), Proportion_Mapped = n()/nrow(mapped_reads))

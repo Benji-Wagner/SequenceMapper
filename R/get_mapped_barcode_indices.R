@@ -8,8 +8,6 @@
 #' @param read Character string with the same length as each barcode in \code{barcodes}
 #' @param distance_threshold Integer specifying the Hamming distance threshold for which we want to filter barcodes
 #' @return Returns a vector of integers which are the indices of barcodes within 2 Hamming distance of the read
-#' @examples
-#' get_mapped_barcode_indices(barcodes = c('ACTG', 'AATG', 'GTCA'), read = 'ACTG')
 
 get_mapped_barcode_indices <- function(barcodes, read, distance_threshold = 2){
   filtered_barcodes <- NULL

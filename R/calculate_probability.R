@@ -11,9 +11,6 @@
 #' @inheritParams phred_to_prob
 #' @return Returns a scalar joint probability, which is the product of marginal probabilities obtained from
 #' \code{phred_to_prob}
-#' @examples
-#' calculate_probability('GTAGAAACTTAGGGGTGC', 'ACGAACCTGAGACACCGG', 'BEEEEFEFEEEFBEEDEE')
-#' calculate_probability('AGAGAAACTTAGGGGTGC', 'AGCTTAAAGAGCTACAAG', '989BBAB7A3E667BAA?')
 
 calculate_probability <- function(reference, read, phred_score){
 

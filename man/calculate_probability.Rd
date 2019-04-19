@@ -25,7 +25,3 @@ For a given position in a mapping and \code{P} being the probability of error at
 of mapping is \eqn{1 - P} if the calls are the same, and \eqn{P/3} if the calls are different.
 If there are no mismatches, the joint probability is \eqn{(1 - P)^n}.
 }
-\examples{
-calculate_probability('GTAGAAACTTAGGGGTGC', 'ACGAACCTGAGACACCGG', 'BEEEEFEFEEEFBEEDEE')
-calculate_probability('AGAGAAACTTAGGGGTGC', 'AGCTTAAAGAGCTACAAG', '989BBAB7A3E667BAA?')
-}

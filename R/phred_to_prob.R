@@ -9,9 +9,6 @@
 #' the corresponding base call is an error.
 #' @return Returns a numeric vector of probabilities with length equal to the number of characters given in
 #' \code{phred_score}
-#' @examples
-#' phred_to_prob('BEEEEFEFEEEFBEEDEE')
-#' phred_to_prob('989BBAB7A3E667BAA?')
 
 phred_to_prob <- function(phred_score){
   scores <- utf8ToInt(phred_score) - 33

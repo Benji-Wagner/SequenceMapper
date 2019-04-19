@@ -8,7 +8,8 @@ Authors@R:
            email = "benjiwagner1234@gmail.com")
 Description: Includes function for mapping DNA sequence reads to reference barcodes. Each read includes a Phred
     score, which is an ASCII string that encodes the probabilities of errors for a given base call.
-License: GNU AFFERO GENERAL PUBLIC LICENSE
+Depends: R (>= 2.10)
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
@@ -19,6 +20,7 @@ Imports:
     dplyr,
     readr,
     magrittr,
-    purrr
+    purrr,
+    tibble
 Suggests: knitr, rmarkdown, ggplot2
 VignetteBuilder: knitr
