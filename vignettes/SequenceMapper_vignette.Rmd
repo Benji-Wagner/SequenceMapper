@@ -89,6 +89,7 @@ and the proportion of mapped reads that mapped to it:
 mapped_reads %>% 
   group_by(mapped_barcodes) %>%
   summarize(Number_Mapped = n(), Proportion_Mapped = n()/nrow(.))
+
 ```
 
 Here's a quick look at the distribution of reads mapped to a barcode:
