@@ -65,7 +65,3 @@ mapped_reads %>%
   ylab("Count") +
   ggtitle("Distribution of Reads Mapped Per Barcode")
 ```
-
-From this plot we can see that a particular barcode has been mapped to over 200 times!
-
-
