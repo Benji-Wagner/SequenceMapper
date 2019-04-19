@@ -19,8 +19,30 @@ The reads dataset comes with the read identifier, the called read, and the read'
 The barcodes dataset comes with the barcode identifier and the reference sequence.
 The motivating problem is we want to find the number of reads that map to a particular barcode, but we want to
 allow for mismatches. Thus, by using the Hamming Distance, we can map reads to barcodes that might not be an exact match.
+
 Using the Phred Scores, we can also calculate the probability that a given read maps to a particular barcode by using
-a probabilistic error model.
+a probabilistic error model. The joint probability distribution of the originating reads conditional on the
+corresponding observed reads, $P(\bf{\tilde{r}}^k | \bf{r})$, under the assumption of conditional independence:
+
+
+$$
+\begin{align}
+  P(\tilde{\bf{r}}^k | \textbf{r}) &= P(\tilde{R} = \tilde{\bf{r}}^k | R = \textbf{r}) \\
+  &= P(\tilde{R} = [\tilde{r_1}, \dots, \tilde{r_L}] | R = [r_1, \dots, r_L]) \\
+  &= \prod^L_{i=1} P(\tilde{R_j} = \tilde{r_j}| R = [r_1, \dots, r_L]) \\
+  &= \prod^L_{i=1} P(\tilde{R_j} = \tilde{r_j}| R_j = r_j).
+\end{align}
+$$
+
+The marginal conditional probability is modeled as:
+
+$$
+  P(\tilde{R_j} = \tilde{r_j}| R_j = r_j) = 
+    \begin{cases}
+      1 - \epsilon_j & \tilde{r_j} = r_j \\
+      \frac{\epsilon_j}{3} & \tilde{r_j} \neq r_j
+    \end{cases}
+$$
 
 # Installation
 
@@ -68,7 +90,7 @@ mapped_reads %>%
 ```
 
 Here's a quick look at the distribution of reads mapped to a barcode:
-```{r, out.height=6}
+```{r}
 library(ggplot2)
 # if you don't have this package, run install.packages("ggplot2")
 
@@ -77,9 +99,9 @@ mapped_reads %>%
   summarize(Number_Mapped = n(), Proportion_Mapped = n()/nrow(.)) %>% 
   ggplot(mapping = aes(x = Number_Mapped)) + 
   geom_histogram(bins = 40) +
-  xlab("Number of Reads Mapped to a Barcode") +
+  xlab("Number of Reads Mapped") +
   ylab("Count") +
-  ggtitle("Distribution of Reads Mapped Per Barcode")
+  ggtitle("Reads Mapped Per Barcode")
 ```
 
 From this plot we can see that a particular barcode has been mapped to over 200 times!

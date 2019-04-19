@@ -15,6 +15,10 @@ RoxygenNote: 6.1.1
 LinkingTo: 
     Rcpp
 Imports: 
-    Rcpp
-Suggests: knitr, rmarkdown, readr, dplyr, magrittr
+    Rcpp,
+    dplyr,
+    readr,
+    magrittr,
+    purrr
+Suggests: knitr, rmarkdown, ggplot2
 VignetteBuilder: knitr
