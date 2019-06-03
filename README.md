@@ -25,7 +25,7 @@ and [FASTA](https://zhanglab.ccmb.med.umich.edu/FASTA/) files.
 
 These files can be loaded like so:
 ```r
-library(SequenceMapper}
+library(SequenceMapper)
 reads_table <- get_reads_table()
 barcodes_table <- get_barcode_table()
 ```
